@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <dirent.h>
@@ -20,6 +21,7 @@ typedef struct {
         char *pid;
         char *cmd;
 } proc;
+
 DYN_ARRAY_TYPE(proc *, proc_ptr_array);
 
 typedef struct {
@@ -27,6 +29,7 @@ typedef struct {
                 int w;
                 int h;
         } win;
+        int scroll_offset;
         proc_ptr_array procs;
 } context;
 
@@ -126,10 +129,38 @@ regex(const char *pattern,
         else return 0;
 }
 
+int
+iota(int forward)
+{
+        assert(forward == -1 || forward >= 0);
+        static int __f = 0;
+        int res = __f;
+        if (forward == -1) {
+                __f = 1;
+        } else {
+                __f += forward;
+        }
+        return res;
+}
+
+void
+dump_procs(const context *ctx)
+{
+        printw("%-8s %-8s %s\n", "USER", "PID", "COMMAND");
+        iota(-1), iota(1);
+        for (size_t i = 1; i < ctx->procs.len; ++i) {
+                const proc *p = ctx->procs.data[i];
+                mvwprintw(stdscr, iota(1), 1, "%-8s %-8s %-8s", p->user, p->pid, p->cmd);
+        }
+        wrefresh(stdscr);
+}
+
 void
 input_loop(const context *ctx)
 {
         while (1) {
+                dump_procs(ctx);
+
                 char ch = getch();
 
                 switch (ch) {
@@ -150,10 +181,12 @@ main(void)
                         .w = 0,
                         .h = 0,
                 },
+                .scroll_offset = 0,
                 .procs = dyn_array_empty(proc_ptr_array),
         };
 
         init_ncurses(&ctx);
+        --ctx.win.h; // for input bar
         atexit(cleanup);
 
         DIR *proc_dir;
