@@ -11,6 +11,7 @@
 
 #include <ncurses.h>
 
+#include "flags.h"
 #include "dyn_array.h"
 #define CLAP_IMPL
 #include "clap.h"
@@ -26,16 +27,6 @@
 #define ESCAPE 27
 #define ENTER 10
 #define SPACE 23
-
-#define FLAG_1HY_HELP 'h'
-#define FLAG_1HY_LIST 'l'
-
-#define FLAG_2HY_HELP "help"
-#define FLAG_2HY_LIST "list"
-
-typedef enum {
-        FT_LIST = 1 << 0,
-} flag_type;
 
 DYN_ARRAY_TYPE(char, char_array);
 
