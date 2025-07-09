@@ -6,10 +6,13 @@
 
 #define FLAG_2HY_HELP "help"
 #define FLAG_2HY_LIST "list"
+#define FLAG_2HY_COPYING "copying"
 
 typedef enum {
         FT_LIST = 1 << 0,
 } flag_type;
 
+void usage(void);
+void copying(void);
 
 #endif // FLAGS_H_INCLUDED

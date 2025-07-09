@@ -335,16 +335,6 @@ input_loop(context *ctx)
         }
 }
 
-void
-usage(void)
-{
-        printf("Usage: xkillr [options...] [pid|name]\n");
-        printf("Options:\n");
-        printf("    -%c, --%s    show this menu\n", FLAG_1HY_HELP, FLAG_2HY_HELP);
-        printf("    -%c, --%s    show running procs\n", FLAG_1HY_LIST, FLAG_2HY_LIST);
-        exit(0);
-}
-
 int
 main(int argc, char **argv)
 {
@@ -377,7 +367,10 @@ main(int argc, char **argv)
                         usage();
                 } else if (two && !strcmp(arg.start, FLAG_2HY_LIST)) {
                         ctx.flags |= FT_LIST;
-                } else {
+                } else if (two && !strcmp(arg.start, FLAG_2HY_COPYING)) {
+                        copying();
+                }
+                else {
                         TODO("handling processes on the CLI");
                 }
         }
