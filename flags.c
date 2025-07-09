@@ -25,6 +25,13 @@
 #include "config.h"
 
 void
+version(void)
+{
+        printf("xkillr v" VERSION "\n");
+        exit(0);
+}
+
+void
 usage(void)
 {
         printf("xkillr version " VERSION ", Copyright (C) 2025 malloc-nbytes.\n\n");
@@ -35,7 +42,7 @@ usage(void)
         printf("Compilation Information:\n");
         printf("| cc: " COMPILER_NAME "\n");
         printf("| path: " COMPILER_PATH "\n");
-        printf("| ver.: " COMPILER_VERSION "\n");
+        printf("| ver.: " COMPILER_VERSION "\n\n");
 
         printf("Github repository: https://www.github.com/malloc-nbytes/xkillr.git/\n\n");
         printf("Send bug reports to:\n");

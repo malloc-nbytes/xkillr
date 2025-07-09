@@ -382,13 +382,25 @@ main(int argc, char **argv)
                         usage();
                 } else if (one && arg.start[0] == FLAG_1HY_LIST) {
                         ctx.flags |= FT_LIST;
-                } else if (two && !strcmp(arg.start, FLAG_2HY_HELP)) {
+                } else if (one && arg.start[0] == FLAG_1HY_VERSION) {
+                        version();
+                }
+
+                else if (two && !strcmp(arg.start, FLAG_2HY_HELP)) {
                         usage();
                 } else if (two && !strcmp(arg.start, FLAG_2HY_LIST)) {
                         ctx.flags |= FT_LIST;
                 } else if (two && !strcmp(arg.start, FLAG_2HY_COPYING)) {
                         copying();
+                } else if (two && !strcmp(arg.start, FLAG_2HY_VERSION)) {
+                        version();
                 }
+
+                else if (arg.hyphc != 0) {
+                        fprintf(stderr, "unknown flag `%s`\n", arg.start);
+                        exit(1);
+                }
+
                 else {
                         TODO("handling processes on the CLI");
                 }
