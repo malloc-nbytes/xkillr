@@ -11,17 +11,19 @@ killing processes.
 `xkillr` uses `autotools`, so do the usual:
 
 ```
-autoreconf --install && mkdir build && cd build
-./configure --prefix=<loc>
+autoreconf --install
+mkdir build
+cd build
+../configure
 make
 ```
 
-where `loc` is the destination prefix for the binary i.e., `--prefix=/usr`, `--prefix=/usr/local`.
+You can also specify the installation prefix for the binary i.e., `../configure --prefix=/usr`, `../configure --prefix=/usr/local`.
 
 ## Install
 To install, do
 ```
-make install
+sudo make install
 ```
 
-Do `make uninstall` to uninstall.
+Do `sudo make uninstall` to uninstall.
