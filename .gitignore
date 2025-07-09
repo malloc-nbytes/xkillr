@@ -1,6 +1,6 @@
 main
 xkillr
-conf*
+configure
 Makefile
 Makefile.in
 /aclocal.m4
