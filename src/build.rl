@@ -2,4 +2,4 @@
 
 module Build
 
-$"cc -o main main.c $(pkg-config --libs --cflags ncurses)";
+$"cc -ggdb -o main main.c $(pkg-config --libs --cflags ncurses)";
