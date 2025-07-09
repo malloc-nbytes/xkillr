@@ -279,7 +279,7 @@ kill_selected_proc(context *ctx)
         }
 
         // Wait for a keypress to exit
-        timeout(-1); // Disable timeout to wait indefinitely
+        timeout(-1);
         getch();
 }
 
@@ -347,7 +347,7 @@ input_loop(context *ctx)
 void
 usage(void)
 {
-        printf("Usage: killer [options...] [pid|name]\n");
+        printf("Usage: xkillr [options...] [pid|name]\n");
         printf("Options:\n");
         printf("    -%c, --%s    show this menu\n", FLAG_1HY_HELP, FLAG_2HY_HELP);
         printf("    -%c, --%s    show running procs\n", FLAG_1HY_LIST, FLAG_2HY_LIST);
