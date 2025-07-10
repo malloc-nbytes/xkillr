@@ -26,4 +26,13 @@ To install, do
 sudo make install
 ```
 
+## Controls
+```
+CTRL + q -> quit
+DOWN -> scroll down
+UP -> scroll up
+```
+
+Otherwise, type any other character to search for processes.
+
 Do `sudo make uninstall` to uninstall.
