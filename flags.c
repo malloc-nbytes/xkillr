@@ -25,6 +25,17 @@
 #include "config.h"
 
 void
+controls(void)
+{
+        printf("Controls:\n");
+        printf("    CTRL + q -> quit\n");
+        printf("    UP -> scroll up\n");
+        printf("    DOWN -> scroll down\n");
+        printf("Type other characters to filter processes.\n");
+        exit(0);
+}
+
+void
 version(void)
 {
         printf("xkillr v" VERSION "\n");
@@ -53,6 +64,7 @@ usage(void)
         printf("Options:\n");
         printf("    -%c, --%s       show this menu\n", FLAG_1HY_HELP, FLAG_2HY_HELP);
         printf("    -%c, --%s       show running procs\n", FLAG_1HY_LIST, FLAG_2HY_LIST);
+        printf("    -%c, --%s   show controls\n", FLAG_1HY_CONTROLS, FLAG_2HY_CONTROLS);
         printf("        --%s    show copying information\n", FLAG_2HY_COPYING);
         exit(0);
 }

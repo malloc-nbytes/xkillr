@@ -23,11 +23,13 @@
 #define FLAG_1HY_HELP 'h'
 #define FLAG_1HY_LIST 'l'
 #define FLAG_1HY_VERSION 'v'
+#define FLAG_1HY_CONTROLS 'c'
 
 #define FLAG_2HY_HELP "help"
 #define FLAG_2HY_LIST "list"
 #define FLAG_2HY_COPYING "copying"
 #define FLAG_2HY_VERSION "version"
+#define FLAG_2HY_CONTROLS "controls"
 
 typedef enum {
         FT_LIST = 1 << 0,
@@ -36,5 +38,6 @@ typedef enum {
 void usage(void);
 void copying(void);
 void version(void);
+void controls(void);
 
 #endif // FLAGS_H_INCLUDED

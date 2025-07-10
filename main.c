@@ -384,6 +384,8 @@ main(int argc, char **argv)
                         ctx.flags |= FT_LIST;
                 } else if (one && arg.start[0] == FLAG_1HY_VERSION) {
                         version();
+                } else if (one && arg.start[0] == FLAG_1HY_CONTROLS) {
+                        controls();
                 }
 
                 else if (two && !strcmp(arg.start, FLAG_2HY_HELP)) {
@@ -394,6 +396,8 @@ main(int argc, char **argv)
                         copying();
                 } else if (two && !strcmp(arg.start, FLAG_2HY_VERSION)) {
                         version();
+                } else if (two && !strcmp(arg.start, FLAG_2HY_CONTROLS)) {
+                        controls();
                 }
 
                 else if (arg.hyphc != 0) {
